@@ -1,4 +1,4 @@
-import { IListaFilmes } from './../models/IFilmeAPI.model';
+import { IListaFilmes, IFilmeAPI } from './../models/IFilmeAPI.model';
 import { FilmeService } from './../services/filme.service';
 import { DadosService } from './../services/dados.service';
 import { IFilme } from '../models/IFilme.model';
@@ -37,7 +37,7 @@ export class Tab1Page {
     },
   ];
 
-  listaFilmes: IListaFilmes | any;
+  listaFilmes!: IListaFilmes | any;
 
   constructor(
     public alertController: AlertController,
@@ -58,7 +58,7 @@ export class Tab1Page {
     }
   }
 
-  exibirFilme(filme: IFilme) {
+  exibirFilme(filme: IFilmeAPI) {
     this.dadosService.guardarDados('filme', filme);
     this.route.navigateByUrl('/dados-filme');
   }
