@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="">
+<ion-content [fullscreen]="true">
   <div class="center">
     <ion-card color="dark">
       <img src="assets/videoapp.png" alt="Logo">
@@ -11,7 +11,7 @@
         <ion-label position="floating">Senha</ion-label>
         <ion-input type="password" [(ngModel)]="senha"></ion-input>
       </ion-item>
-      <ion-button (click)="login()" expand="full" fill="outlline" color="light">ENTRAR</ion-button>
+      <ion-button (click)="login()" expand="full" fill="clear" color="light">ENTRAR</ion-button>
       <ion-button expand="full" fill="clear" color="light">REGISTRAR</ion-button>
     </ion-card>
   </div>

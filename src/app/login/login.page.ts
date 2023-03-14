@@ -8,8 +8,8 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  email: string = '';
-  senha: string = '';
+  email: string;
+  senha: string;
 
   constructor(public toastController: ToastController, private route: Router) {}
 
@@ -20,7 +20,7 @@ export class LoginPage implements OnInit {
       this.route.navigateByUrl('/tabs/tab1');
       this.presentToast('Seja bem vindo!', 'success');
     } else {
-      this.presentToast('ERRO, usuário ou senha inválida', 'danger');
+      this.presentToast('ERRO, usuário ou senha inválidos"', 'danger');
     }
   }
 
@@ -30,5 +30,6 @@ export class LoginPage implements OnInit {
       color: cor,
       duration: 2000,
     });
+    toast.present();
   }
 }
