@@ -1,4 +1,3 @@
-import { IGenero } from './../models/IGenero.model';
 import { GeneroService } from './../services/genero.service';
 import { IListaFilmes, IFilmeAPI } from './../models/IFilmeAPI.model';
 import { FilmeService } from './../services/filme.service';
@@ -13,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
 })
-export class Tab1Page  implements OnInit{
+export class Tab1Page implements OnInit {
   titulo = 'Filmes';
 
   listaVideos: IFilme[] = [
@@ -102,13 +101,14 @@ export class Tab1Page  implements OnInit{
     await toast.present();
   }
 
-  ngOnInit(){
-    this.generoService.buscarGeneros().subscribe(dados =>{
+  ngOnInit() {
+    this.generoService.buscarGeneros().subscribe((dados) => {
       console.log('Generos: ', dados.genres);
-      dados.genres.forEach(genero => {
+      dados.genres.forEach((genero) => {
         this.generos[genero.id] = genero.name;
-      })
+      });
+
+      this.dadosService.guardarDados('generos', this.generos);
     });
   }
-
 }
